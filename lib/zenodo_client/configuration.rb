@@ -130,7 +130,7 @@ module ZenodoClient
     def initialize
       @scheme = 'https'
       @host = 'sandbox.zenodo.org'
-      @base_path = '/'
+      @base_path = '/api'
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0

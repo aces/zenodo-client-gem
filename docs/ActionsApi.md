@@ -1,6 +1,6 @@
 # ZenodoClient::ActionsApi
 
-All URIs are relative to *https://sandbox.zenodo.org*
+All URIs are relative to *https://sandbox.zenodo.org/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

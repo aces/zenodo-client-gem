@@ -38,7 +38,7 @@ Finally add this to the Gemfile:
 
 If the Ruby gem is hosted at a git repository: https://github.com/aces/zenodo-client-gem, then add the following in the Gemfile:
 
-    gem 'zenodo_client', :git => 'https://github.com/aces/zenodo-client-gem'
+    gem 'zenodo_client', :git => 'https://github.com/aces/zenodo-client-gem.git'
 
 ### Include the Ruby code directly
 
@@ -80,7 +80,7 @@ end
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://sandbox.zenodo.org*
+All URIs are relative to *https://sandbox.zenodo.org/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
