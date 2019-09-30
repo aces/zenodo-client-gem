@@ -118,7 +118,6 @@ Class | Method | HTTP request | Description
  - [ZenodoClient::NestedDepositMetadata](docs/NestedDepositMetadata.md)
  - [ZenodoClient::RelatedIdentifier](docs/RelatedIdentifier.md)
  - [ZenodoClient::Subject](docs/Subject.md)
- - [ZenodoClient::UploadFile](docs/UploadFile.md)
 
 
 ## Documentation for Authorization

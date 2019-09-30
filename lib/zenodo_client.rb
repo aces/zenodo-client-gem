@@ -27,7 +27,6 @@ require 'zenodo_client/models/grant'
 require 'zenodo_client/models/nested_deposit_metadata'
 require 'zenodo_client/models/related_identifier'
 require 'zenodo_client/models/subject'
-require 'zenodo_client/models/upload_file'
 
 # APIs
 require 'zenodo_client/api/actions_api'

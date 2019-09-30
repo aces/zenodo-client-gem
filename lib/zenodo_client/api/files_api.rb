@@ -22,27 +22,37 @@ module ZenodoClient
     # Create a new file
     # 
     # @param deposit_id 
+    # @param file The file to upload
+    # @param filename Filename for file
     # @param [Hash] opts the optional parameters
-    # @option opts [UploadFile] :upload_file 
     # @return [DepositionFile]
-    def create_file(deposit_id, opts = {})
-      data, _status_code, _headers = create_file_with_http_info(deposit_id, opts)
+    def create_file(deposit_id, file, filename, opts = {})
+      data, _status_code, _headers = create_file_with_http_info(deposit_id, file, filename, opts)
       data
     end
 
     # Create a new file
     # 
     # @param deposit_id 
+    # @param file The file to upload
+    # @param filename Filename for file
     # @param [Hash] opts the optional parameters
-    # @option opts [UploadFile] :upload_file 
     # @return [Array<(DepositionFile, Fixnum, Hash)>] DepositionFile data, response status code and response headers
-    def create_file_with_http_info(deposit_id, opts = {})
+    def create_file_with_http_info(deposit_id, file, filename, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilesApi.create_file ...'
       end
       # verify the required parameter 'deposit_id' is set
       if @api_client.config.client_side_validation && deposit_id.nil?
         fail ArgumentError, "Missing the required parameter 'deposit_id' when calling FilesApi.create_file"
+      end
+      # verify the required parameter 'file' is set
+      if @api_client.config.client_side_validation && file.nil?
+        fail ArgumentError, "Missing the required parameter 'file' when calling FilesApi.create_file"
+      end
+      # verify the required parameter 'filename' is set
+      if @api_client.config.client_side_validation && filename.nil?
+        fail ArgumentError, "Missing the required parameter 'filename' when calling FilesApi.create_file"
       end
       # resource path
       local_var_path = '/deposit/depositions/{depositId}/files'.sub('{' + 'depositId' + '}', deposit_id.to_s)
@@ -55,13 +65,15 @@ module ZenodoClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'multipart/form-data'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
       # form parameters
       form_params = {}
+      form_params['file'] = file
+      form_params['filename'] = filename
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'upload_file'])
+      post_body = nil
       auth_names = ['access_token']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,

@@ -36,8 +36,9 @@ describe 'FilesApi' do
   # Create a new file
   # 
   # @param deposit_id 
+  # @param file The file to upload
+  # @param filename Filename for file
   # @param [Hash] opts the optional parameters
-  # @option opts [UploadFile] :upload_file 
   # @return [DepositionFile]
   describe 'create_file test' do
     it 'should work' do

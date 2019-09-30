@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create_file**
-> DepositionFile create_file(deposit_id, opts)
+> DepositionFile create_file(deposit_id, file, filename)
 
 Create a new file
 
@@ -35,13 +35,14 @@ api_instance = ZenodoClient::FilesApi.new
 
 deposit_id = 56 # Integer | 
 
-opts = { 
-  upload_file: ZenodoClient::UploadFile.new # UploadFile | 
-}
+file = File.new('/path/to/file.txt') # File | The file to upload
+
+filename = 'filename_example' # String | Filename for file
+
 
 begin
   #Create a new file
-  result = api_instance.create_file(deposit_id, opts)
+  result = api_instance.create_file(deposit_id, file, filename)
   p result
 rescue ZenodoClient::ApiError => e
   puts "Exception when calling FilesApi->create_file: #{e}"
@@ -53,7 +54,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deposit_id** | **Integer**|  | 
- **upload_file** | [**UploadFile**](UploadFile.md)|  | [optional] 
+ **file** | **File**| The file to upload | 
+ **filename** | **String**| Filename for file | 
 
 ### Return type
 
@@ -65,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 
