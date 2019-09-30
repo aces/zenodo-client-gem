@@ -32,6 +32,8 @@ module ZenodoClient
 
     attr_accessor :record_id
 
+    attr_accessor :record_url
+
     attr_accessor :state
 
     attr_accessor :submitted
@@ -50,6 +52,7 @@ module ZenodoClient
         :'modified' => :'modified',
         :'owner' => :'owner',
         :'record_id' => :'record_id',
+        :'record_url' => :'record_url',
         :'state' => :'state',
         :'submitted' => :'submitted',
         :'title' => :'title'
@@ -68,6 +71,7 @@ module ZenodoClient
         :'modified' => :'DateTime',
         :'owner' => :'Integer',
         :'record_id' => :'Integer',
+        :'record_url' => :'String',
         :'state' => :'String',
         :'submitted' => :'BOOLEAN',
         :'title' => :'String'
@@ -120,6 +124,10 @@ module ZenodoClient
         self.record_id = attributes[:'record_id']
       end
 
+      if attributes.has_key?(:'record_url')
+        self.record_url = attributes[:'record_url']
+      end
+
       if attributes.has_key?(:'state')
         self.state = attributes[:'state']
       end
@@ -160,6 +168,7 @@ module ZenodoClient
           modified == o.modified &&
           owner == o.owner &&
           record_id == o.record_id &&
+          record_url == o.record_url &&
           state == o.state &&
           submitted == o.submitted &&
           title == o.title
@@ -174,7 +183,7 @@ module ZenodoClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [conceptrecid, created, files, id, links, metadata, modified, owner, record_id, state, submitted, title].hash
+      [conceptrecid, created, files, id, links, metadata, modified, owner, record_id, record_url, state, submitted, title].hash
     end
 
     # Builds the object from hash

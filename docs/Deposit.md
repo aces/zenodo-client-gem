@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **modified** | **DateTime** |  | [optional] 
 **owner** | **Integer** |  | [optional] 
 **record_id** | **Integer** |  | [optional] 
+**record_url** | **String** |  | [optional] 
 **state** | **String** |  | [optional] 
 **submitted** | **BOOLEAN** |  | [optional] 
 **title** | **String** |  | [optional] 

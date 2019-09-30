@@ -14,19 +14,19 @@ require 'date'
 
 module ZenodoClient
   class Community
-    attr_accessor :id
+    attr_accessor :identifier
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id'
+        :'identifier' => :'identifier'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String'
+        :'identifier' => :'String'
       }
     end
 
@@ -38,8 +38,8 @@ module ZenodoClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'identifier')
+        self.identifier = attributes[:'identifier']
       end
     end
 
@@ -47,12 +47,17 @@ module ZenodoClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @identifier.nil?
+        invalid_properties.push('invalid value for "identifier", identifier cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @identifier.nil?
       true
     end
 
@@ -61,7 +66,7 @@ module ZenodoClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id
+          identifier == o.identifier
     end
 
     # @see the `==` method
@@ -73,7 +78,7 @@ module ZenodoClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id].hash
+      [identifier].hash
     end
 
     # Builds the object from hash

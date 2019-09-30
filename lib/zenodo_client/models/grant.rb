@@ -14,19 +14,19 @@ require 'date'
 
 module ZenodoClient
   class Grant
-    attr_accessor :identifier
+    attr_accessor :id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'identifier' => :'identifier'
+        :'id' => :'id'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'identifier' => :'String'
+        :'id' => :'String'
       }
     end
 
@@ -38,8 +38,8 @@ module ZenodoClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'identifier')
-        self.identifier = attributes[:'identifier']
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
     end
 
@@ -61,7 +61,7 @@ module ZenodoClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          identifier == o.identifier
+          id == o.id
     end
 
     # @see the `==` method
@@ -73,7 +73,7 @@ module ZenodoClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [identifier].hash
+      [id].hash
     end
 
     # Builds the object from hash
