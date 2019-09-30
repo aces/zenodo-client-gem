@@ -35,8 +35,8 @@ describe 'DepositsApi' do
   # unit tests for create_deposit
   # Create a new deposit
   # 
+  # @param deposit The deposit to create.
   # @param [Hash] opts the optional parameters
-  # @option opts [Deposit] :deposit The deposit to create.
   # @return [Deposit]
   describe 'create_deposit test' do
     it 'should work' do
@@ -83,8 +83,8 @@ describe 'DepositsApi' do
   # Put deposit
   # Update metadata for a single deposit
   # @param deposit_id 
+  # @param deposit The deposit to update.
   # @param [Hash] opts the optional parameters
-  # @option opts [NestedDepositMetadata] :deposit The deposit to update.
   # @return [Deposit]
   describe 'put_deposit test' do
     it 'should work' do

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_deposit**
-> Deposit create_deposit(opts)
+> Deposit create_deposit(deposit)
 
 Create a new deposit
 
@@ -32,13 +32,12 @@ end
 
 api_instance = ZenodoClient::DepositsApi.new
 
-opts = { 
-  deposit: ZenodoClient::Deposit.new # Deposit | The deposit to create.
-}
+deposit = ZenodoClient::Deposit.new # Deposit | The deposit to create.
+
 
 begin
   #Create a new deposit
-  result = api_instance.create_deposit(opts)
+  result = api_instance.create_deposit(deposit)
   p result
 rescue ZenodoClient::ApiError => e
   puts "Exception when calling DepositsApi->create_deposit: #{e}"
@@ -49,7 +48,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deposit** | [**Deposit**](Deposit.md)| The deposit to create. | [optional] 
+ **deposit** | [**Deposit**](Deposit.md)| The deposit to create. | 
 
 ### Return type
 
@@ -222,7 +221,7 @@ This endpoint does not need any parameter.
 
 
 # **put_deposit**
-> Deposit put_deposit(deposit_id, opts)
+> Deposit put_deposit(deposit_id, deposit)
 
 Put deposit
 
@@ -244,13 +243,12 @@ api_instance = ZenodoClient::DepositsApi.new
 
 deposit_id = 56 # Integer | 
 
-opts = { 
-  deposit: ZenodoClient::NestedDepositMetadata.new # NestedDepositMetadata | The deposit to update.
-}
+deposit = ZenodoClient::NestedDepositMetadata.new # NestedDepositMetadata | The deposit to update.
+
 
 begin
   #Put deposit
-  result = api_instance.put_deposit(deposit_id, opts)
+  result = api_instance.put_deposit(deposit_id, deposit)
   p result
 rescue ZenodoClient::ApiError => e
   puts "Exception when calling DepositsApi->put_deposit: #{e}"
@@ -262,7 +260,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deposit_id** | **Integer**|  | 
- **deposit** | [**NestedDepositMetadata**](NestedDepositMetadata.md)| The deposit to update. | [optional] 
+ **deposit** | [**NestedDepositMetadata**](NestedDepositMetadata.md)| The deposit to update. | 
 
 ### Return type
 

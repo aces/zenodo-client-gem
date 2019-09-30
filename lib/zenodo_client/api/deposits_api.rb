@@ -21,22 +21,26 @@ module ZenodoClient
     end
     # Create a new deposit
     # 
+    # @param deposit The deposit to create.
     # @param [Hash] opts the optional parameters
-    # @option opts [Deposit] :deposit The deposit to create.
     # @return [Deposit]
-    def create_deposit(opts = {})
-      data, _status_code, _headers = create_deposit_with_http_info(opts)
+    def create_deposit(deposit, opts = {})
+      data, _status_code, _headers = create_deposit_with_http_info(deposit, opts)
       data
     end
 
     # Create a new deposit
     # 
+    # @param deposit The deposit to create.
     # @param [Hash] opts the optional parameters
-    # @option opts [Deposit] :deposit The deposit to create.
     # @return [Array<(Deposit, Fixnum, Hash)>] Deposit data, response status code and response headers
-    def create_deposit_with_http_info(opts = {})
+    def create_deposit_with_http_info(deposit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DepositsApi.create_deposit ...'
+      end
+      # verify the required parameter 'deposit' is set
+      if @api_client.config.client_side_validation && deposit.nil?
+        fail ArgumentError, "Missing the required parameter 'deposit' when calling DepositsApi.create_deposit"
       end
       # resource path
       local_var_path = '/deposit/depositions'
@@ -55,7 +59,7 @@ module ZenodoClient
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'deposit'])
+      post_body = @api_client.object_to_http_body(deposit)
       auth_names = ['access_token']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -227,27 +231,31 @@ module ZenodoClient
     # Put deposit
     # Update metadata for a single deposit
     # @param deposit_id 
+    # @param deposit The deposit to update.
     # @param [Hash] opts the optional parameters
-    # @option opts [NestedDepositMetadata] :deposit The deposit to update.
     # @return [Deposit]
-    def put_deposit(deposit_id, opts = {})
-      data, _status_code, _headers = put_deposit_with_http_info(deposit_id, opts)
+    def put_deposit(deposit_id, deposit, opts = {})
+      data, _status_code, _headers = put_deposit_with_http_info(deposit_id, deposit, opts)
       data
     end
 
     # Put deposit
     # Update metadata for a single deposit
     # @param deposit_id 
+    # @param deposit The deposit to update.
     # @param [Hash] opts the optional parameters
-    # @option opts [NestedDepositMetadata] :deposit The deposit to update.
     # @return [Array<(Deposit, Fixnum, Hash)>] Deposit data, response status code and response headers
-    def put_deposit_with_http_info(deposit_id, opts = {})
+    def put_deposit_with_http_info(deposit_id, deposit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DepositsApi.put_deposit ...'
       end
       # verify the required parameter 'deposit_id' is set
       if @api_client.config.client_side_validation && deposit_id.nil?
         fail ArgumentError, "Missing the required parameter 'deposit_id' when calling DepositsApi.put_deposit"
+      end
+      # verify the required parameter 'deposit' is set
+      if @api_client.config.client_side_validation && deposit.nil?
+        fail ArgumentError, "Missing the required parameter 'deposit' when calling DepositsApi.put_deposit"
       end
       # resource path
       local_var_path = '/deposit/depositions/{depositId}'.sub('{' + 'depositId' + '}', deposit_id.to_s)
@@ -266,7 +274,7 @@ module ZenodoClient
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(opts[:'deposit'])
+      post_body = @api_client.object_to_http_body(deposit)
       auth_names = ['access_token']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
